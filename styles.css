@@ -167,20 +167,15 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  line-height: 0;
   text-decoration: none;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.45rem;
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1;
 }
 
-.brand svg {
+.brand img {
   display: block;
-  width: 1.2rem;
-  height: 1.2rem;
+  height: 1.85rem;
+  width: auto;
+  max-height: 1.85rem;
 }
 
 .header-nav {
@@ -681,7 +676,21 @@ h2 {
   color: var(--ink-2);
 }
 
+.cta-mascot {
+  grid-column: 2;
+  justify-self: end;
+  align-self: end;
+  width: min(7.5rem, 42%);
+  height: auto;
+  margin: 0.25rem 0.15rem -1.35rem 0;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  z-index: 4;
+}
+
 .cta-band {
+  position: relative;
   background: var(--oak);
   color: var(--cream);
 }
@@ -773,6 +782,13 @@ h2 {
   min-height: calc(80svh - var(--header));
 }
 
+.error-mascot {
+  display: block;
+  width: 6.75rem;
+  height: auto;
+  margin: 0 0 1.35rem;
+}
+
 .reveal {
   animation: reveal both linear;
   animation-timeline: view();
@@ -812,6 +828,12 @@ h2 {
 
   .header-cta {
     display: none;
+  }
+
+  .cta-mascot {
+    grid-column: 1;
+    width: 6.25rem;
+    margin: 0.15rem 0 -1rem;
   }
 
   .leaf {
