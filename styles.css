@@ -167,11 +167,19 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
+  gap: 0.45rem;
   line-height: 0;
   text-decoration: none;
 }
 
-.brand img {
+.brand-icon {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+}
+
+.brand-wordmark {
   display: block;
   height: 1.85rem;
   width: auto;
