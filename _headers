@@ -23,5 +23,6 @@
   Cache-Control: public, max-age=3600
 
 /downloads/*
-  Content-Disposition: attachment
+  Content-Disposition: attachment; filename="Acorn.dmg"
+  Content-Type: application/x-apple-diskimage
   Cache-Control: public, max-age=3600
