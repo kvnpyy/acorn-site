@@ -1,0 +1,9 @@
+name = "acorn-site"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+run_worker_first = ["/downloads/acorn-mac.dmg", "/src/*"]
+not_found_handling = "404-page"

@@ -1,8 +1,8 @@
 const UPSTREAM =
   "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.2/Acorn_0.1.2_aarch64.dmg";
 
-export async function onRequest(context) {
-  const method = context.request.method;
+async function proxyMacDownload(request) {
+  const method = request.method;
   if (method !== "GET" && method !== "HEAD") {
     return new Response(null, {
       status: 405,
@@ -16,7 +16,7 @@ export async function onRequest(context) {
     "Mozilla/5.0 (compatible; AcornSite/1.0; +https://useacorn.app/)"
   );
   incoming.set("Accept", "*/*");
-  const range = context.request.headers.get("Range");
+  const range = request.headers.get("Range");
   if (range) incoming.set("Range", range);
 
   const upstream = await fetch(UPSTREAM, {
@@ -55,3 +55,16 @@ export async function onRequest(context) {
     headers,
   });
 }
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    if (url.pathname === "/downloads/acorn-mac.dmg") {
+      return proxyMacDownload(request);
+    }
+    if (url.pathname === "/src" || url.pathname.startsWith("/src/")) {
+      return new Response(null, { status: 404 });
+    }
+    return env.ASSETS.fetch(request);
+  },
+};
