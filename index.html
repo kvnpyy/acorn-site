@@ -10,30 +10,32 @@
     />
     <meta name="theme-color" content="#f3eadc" />
     <meta name="color-scheme" content="light" />
-    <link rel="canonical" href="/" />
+    <link rel="canonical" href="https://useacorn.app/" />
     <link rel="icon" href="/images/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/images/apple-touch.png" />
     <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/source-sans.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/images/acorn-icon.png" as="image" />
     <link rel="preload" href="/images/wordmark.png" as="image" />
-    <link rel="stylesheet" href="/styles.css?v=7" />
+    <link rel="stylesheet" href="/styles.css?v=8" />
     <meta property="og:title" content="Acorn — Local meeting notes. Live Ask." />
     <meta
       property="og:description"
       content="No bot in the call. Notes stay on your machine. AI via keys you control."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/images/og.jpg" />
+    <meta property="og:url" content="https://useacorn.app/" />
+    <meta property="og:image" content="https://useacorn.app/images/og.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="/images/og.jpg" />
+    <meta name="twitter:image" content="https://useacorn.app/images/og.jpg" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Acorn",
         "applicationCategory": "BusinessApplication",
-        "operatingSystem": "macOS",
+        "operatingSystem": "macOS 15",
+        "softwareVersion": "0.1.2",
         "description": "Local meeting notes. Live Ask. No bot in the call. Notes stay on your machine. AI via keys you control.",
         "isAccessibleForFree": true,
         "downloadUrl": "https://useacorn.app/downloads/acorn-mac.dmg"
@@ -80,7 +82,13 @@
               Windows coming soon
             </button>
           </div>
-          <p class="fine">No account. macOS. Zoom, Meet, Teams — Acorn never joins.</p>
+          <div class="fine-stack">
+            <p class="fine">v0.1.2 · Apple Silicon · macOS 15 · notarized.</p>
+            <p class="fine">
+              No account. Zoom, Meet, Teams — Acorn never joins. Intel Macs and
+              Windows are on the way.
+            </p>
+          </div>
         </div>
 
         <div class="hero-visual" aria-hidden="true">
@@ -242,10 +250,102 @@
         </div>
       </section>
 
+      <hr class="rule" />
+
+      <section class="wrap band" aria-labelledby="start">
+        <h2 id="start" class="reveal">On this Mac in a minute.</h2>
+        <p class="statement-sub reveal">
+          This build is Apple Silicon, macOS Sequoia 15 or later. Notarized.
+          No account.
+        </p>
+        <div class="timeline">
+          <article class="moment reveal">
+            <p class="time">01</p>
+            <div>
+              <h3>Download Acorn.</h3>
+              <p>
+                Get the 0.1.2 DMG. Open it and drag Acorn into Applications.
+              </p>
+            </div>
+          </article>
+          <article class="moment reveal">
+            <p class="time">02</p>
+            <div>
+              <h3>Open it.</h3>
+              <p>
+                Launch Acorn from Applications. Gatekeeper should let it
+                through — this build is signed and notarized.
+              </p>
+            </div>
+          </article>
+          <article class="moment reveal">
+            <p class="time">03</p>
+            <div>
+              <h3>Grant three permissions.</h3>
+              <p>
+                Microphone so it can hear you. System audio so it can hear
+                everyone else. Accessibility so it can read meeting details
+                without joining the call.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="wrap band" aria-labelledby="faq">
+        <h2 id="faq" class="reveal">Before you download.</h2>
+        <div class="faq">
+          <article class="reveal">
+            <h3>Does a bot join the call?</h3>
+            <p>
+              No. Acorn captures from your Mac. Nobody else sees a notetaker
+              arrive.
+            </p>
+          </article>
+          <article class="reveal">
+            <h3>Where do the notes live?</h3>
+            <p>
+              On this computer. Transcripts and notes are not uploaded to us
+              in order to take notes.
+            </p>
+          </article>
+          <article class="reveal">
+            <h3>Will this run on my Mac?</h3>
+            <p>
+              Apple Silicon, macOS Sequoia 15 or later. Intel Macs are not
+              supported yet.
+            </p>
+          </article>
+          <article class="reveal">
+            <h3>Which meetings?</h3>
+            <p>
+              Zoom, Meet, Teams, or the room itself. Acorn never joins as a
+              participant.
+            </p>
+          </article>
+          <article class="reveal">
+            <h3>Do I need an AI account?</h3>
+            <p>
+              Not to capture notes. For summaries or Live Ask, connect a
+              provider you already use, with your keys.
+            </p>
+          </article>
+          <article class="reveal">
+            <h3>How do I get help?</h3>
+            <p>
+              Write to
+              <a href="mailto:hello@useacorn.app">hello@useacorn.app</a>.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section class="cta-band band" aria-labelledby="get">
         <div class="wrap">
           <h2 id="get">Download Acorn for Mac.</h2>
-          <p>Private beta. No account. Windows is on the way.</p>
+          <p>Private beta. Apple Silicon, macOS Sequoia 15 or later. No account.</p>
           <div class="actions">
             <a class="btn btn-primary" href="/downloads/acorn-mac.dmg">
               Download for Mac
@@ -257,7 +357,7 @@
               Windows coming soon
             </button>
           </div>
-          <p class="fine">Notes stay on this computer.</p>
+          <p class="fine">v0.1.2 · notarized. Notes stay on this computer.</p>
         </div>
       </section>
     </main>
@@ -268,7 +368,11 @@
           Private beta. From
           <a href="https://repedge.ai" rel="noopener noreferrer">RepEdge</a>.
         </p>
-        <p><a href="/privacy.html">Privacy</a></p>
+        <p class="footer-nav">
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="mailto:hello@useacorn.app">hello@useacorn.app</a>
+        </p>
       </div>
     </footer>
     <script src="/script.js"></script>
