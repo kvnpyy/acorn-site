@@ -1,7 +1,16 @@
-const UPSTREAM =
-  "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.2/Acorn_0.1.2_aarch64.dmg";
+const MAC = {
+  url: "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.13/Acorn_0.1.13_aarch64.dmg",
+  contentType: "application/x-apple-diskimage",
+  filename: "Acorn.dmg",
+};
 
-async function proxyMacDownload(request) {
+const WINDOWS = {
+  url: "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.13/Acorn_0.1.13_x64-setup.exe",
+  contentType: "application/octet-stream",
+  filename: "acorn-windows.exe",
+};
+
+async function proxyDownload(request, asset) {
   const method = request.method;
   if (method !== "GET" && method !== "HEAD") {
     return new Response(null, {
@@ -19,7 +28,7 @@ async function proxyMacDownload(request) {
   const range = request.headers.get("Range");
   if (range) incoming.set("Range", range);
 
-  const upstream = await fetch(UPSTREAM, {
+  const upstream = await fetch(asset.url, {
     method,
     headers: incoming,
     redirect: "follow",
@@ -38,8 +47,11 @@ async function proxyMacDownload(request) {
   }
 
   const headers = new Headers();
-  headers.set("Content-Type", "application/x-apple-diskimage");
-  headers.set("Content-Disposition", 'attachment; filename="Acorn.dmg"');
+  headers.set("Content-Type", asset.contentType);
+  headers.set(
+    "Content-Disposition",
+    `attachment; filename="${asset.filename}"`
+  );
   headers.set("Cache-Control", "public, max-age=3600");
   headers.set("X-Content-Type-Options", "nosniff");
 
@@ -60,7 +72,10 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === "/downloads/acorn-mac.dmg") {
-      return proxyMacDownload(request);
+      return proxyDownload(request, MAC);
+    }
+    if (url.pathname === "/downloads/acorn-windows.exe") {
+      return proxyDownload(request, WINDOWS);
     }
     if (url.pathname === "/src" || url.pathname.startsWith("/src/")) {
       return new Response(null, { status: 404 });

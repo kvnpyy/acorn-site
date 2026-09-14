@@ -17,7 +17,7 @@
     <link rel="preload" href="/fonts/source-sans.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/images/acorn-icon.png" as="image" />
     <link rel="preload" href="/images/wordmark.png" as="image" />
-    <link rel="stylesheet" href="/styles.css?v=9" />
+    <link rel="stylesheet" href="/styles.css?v=10" />
     <meta property="og:title" content="Acorn — Local meeting notes. Live Ask." />
     <meta
       property="og:description"
@@ -34,11 +34,14 @@
         "@type": "SoftwareApplication",
         "name": "Acorn",
         "applicationCategory": "BusinessApplication",
-        "operatingSystem": "macOS 15",
-        "softwareVersion": "0.1.2",
+        "operatingSystem": "macOS 15, Windows 10, Windows 11",
+        "softwareVersion": "0.1.13",
         "description": "Local meeting notes. Live Ask. No bot in the call. Notes stay on your machine. AI via keys you control.",
         "isAccessibleForFree": true,
-        "downloadUrl": "https://useacorn.app/downloads/acorn-mac.dmg"
+        "downloadUrl": [
+          "https://useacorn.app/downloads/acorn-mac.dmg",
+          "https://useacorn.app/downloads/acorn-windows.exe"
+        ]
       }
     </script>
   </head>
@@ -78,15 +81,19 @@
                 <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
-            <button class="btn btn-disabled" type="button" disabled>
-              Windows coming soon
-            </button>
+            <a class="btn btn-secondary" href="/downloads/acorn-windows.exe">
+              Download for Windows
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
           <div class="fine-stack">
-            <p class="fine">v0.1.2 · Apple Silicon · macOS 15 · notarized.</p>
+            <p class="fine">v0.1.13 · Apple Silicon · macOS 15 · notarized.</p>
+            <p class="fine">v0.1.13 · Windows 10/11 x64.</p>
             <p class="fine">
-              No account. Zoom, Meet, Teams — Acorn never joins. Intel Macs and
-              Windows are on the way.
+              No account. Zoom, Meet, Teams — Acorn never joins. Intel Macs
+              are on the way.
             </p>
           </div>
         </div>
@@ -264,7 +271,7 @@
             <div>
               <h3>Download Acorn.</h3>
               <p>
-                Get the 0.1.2 DMG. Open it and drag Acorn into Applications.
+                Get the 0.1.13 DMG. Open it and drag Acorn into Applications.
               </p>
             </div>
           </article>
@@ -290,6 +297,11 @@
             </div>
           </article>
         </div>
+        <p class="statement-sub windows-note reveal">
+          On Windows 10/11 x64, run acorn-windows.exe. The installer is
+          unsigned, so SmartScreen may warn — click More info, then Run
+          anyway. Needs WebView2 (Windows 11 already has it).
+        </p>
       </section>
 
       <hr class="rule" />
@@ -316,6 +328,14 @@
             <p>
               Apple Silicon, macOS Sequoia 15 or later. Intel Macs are not
               supported yet.
+            </p>
+          </article>
+          <article class="reveal">
+            <h3>Will this run on Windows?</h3>
+            <p>
+              Windows 10/11 x64. Run acorn-windows.exe. The installer is
+              unsigned, so SmartScreen may warn — click More info, then Run
+              anyway. Needs WebView2 (Windows 11 already has it).
             </p>
           </article>
           <article class="reveal">
@@ -352,8 +372,8 @@
 
       <section class="cta-band band" aria-labelledby="get">
         <div class="wrap">
-          <h2 id="get">Download Acorn for Mac.</h2>
-          <p>Private beta. Apple Silicon, macOS Sequoia 15 or later. No account.</p>
+          <h2 id="get">Download Acorn.</h2>
+          <p>Private beta. Apple Silicon, macOS Sequoia 15 or later. Windows 10/11 x64. No account.</p>
           <div class="actions">
             <a class="btn btn-primary" href="/downloads/acorn-mac.dmg">
               Download for Mac
@@ -361,11 +381,14 @@
                 <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
-            <button class="btn btn-disabled" type="button" disabled>
-              Windows coming soon
-            </button>
+            <a class="btn btn-secondary" href="/downloads/acorn-windows.exe">
+              Download for Windows
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
-          <p class="fine">v0.1.2 · notarized. Notes stay on this computer.</p>
+          <p class="fine">v0.1.13 · Mac notarized. Notes stay on this computer.</p>
         </div>
       </section>
     </main>

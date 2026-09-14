@@ -243,6 +243,16 @@ a {
   font-size: 0.9rem;
 }
 
+.btn-secondary {
+  background: transparent;
+  color: var(--oak);
+  border-color: color-mix(in srgb, var(--oak) 28%, transparent);
+}
+
+.btn-secondary:hover {
+  background: color-mix(in srgb, var(--oak) 8%, transparent);
+}
+
 .btn-disabled,
 .btn:disabled {
   background: var(--disabled);
@@ -582,6 +592,10 @@ h2 {
   border-top: 1px solid var(--rule);
 }
 
+.windows-note {
+  margin-top: 2.5rem;
+}
+
 .moment {
   display: grid;
   grid-template-columns: 7.5rem minmax(0, 1fr);
@@ -760,6 +774,16 @@ h2 {
 
 .cta-band .btn-primary:hover {
   background: #fff;
+}
+
+.cta-band .btn-secondary {
+  background: transparent;
+  color: var(--cream);
+  border-color: color-mix(in srgb, var(--cream) 40%, transparent);
+}
+
+.cta-band .btn-secondary:hover {
+  background: color-mix(in srgb, var(--cream) 12%, transparent);
 }
 
 .cta-band .btn-disabled,
