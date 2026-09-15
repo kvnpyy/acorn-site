@@ -9,5 +9,9 @@ run_worker_first = [
   "/downloads/acorn-mac.dmg",
   "/downloads/acorn-windows.exe",
   "/src/*",
+  "/.git",
+  "/.git/*",
+  "/.wrangler",
+  "/.wrangler/*",
 ]
 not_found_handling = "404-page"

@@ -1,0 +1,7 @@
+.git
+.wrangler
+.cursor
+.env
+.env.*
+.DS_Store
+**/.DS_Store

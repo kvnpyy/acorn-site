@@ -77,7 +77,14 @@ export default {
     if (url.pathname === "/downloads/acorn-windows.exe") {
       return proxyDownload(request, WINDOWS);
     }
-    if (url.pathname === "/src" || url.pathname.startsWith("/src/")) {
+    if (
+      url.pathname === "/src" ||
+      url.pathname.startsWith("/src/") ||
+      url.pathname === "/.git" ||
+      url.pathname.startsWith("/.git/") ||
+      url.pathname === "/.wrangler" ||
+      url.pathname.startsWith("/.wrangler/")
+    ) {
       const notFound = await env.ASSETS.fetch(
         new URL("/404.html", request.url)
       );
