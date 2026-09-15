@@ -78,7 +78,13 @@ export default {
       return proxyDownload(request, WINDOWS);
     }
     if (url.pathname === "/src" || url.pathname.startsWith("/src/")) {
-      return new Response(null, { status: 404 });
+      const notFound = await env.ASSETS.fetch(
+        new URL("/404.html", request.url)
+      );
+      return new Response(notFound.body, {
+        status: 404,
+        headers: notFound.headers,
+      });
     }
     return env.ASSETS.fetch(request);
   },

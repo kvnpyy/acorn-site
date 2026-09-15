@@ -6,10 +6,12 @@
     <title>Acorn — Local meeting notes. Live Ask.</title>
     <meta
       name="description"
-      content="Local meeting notes. Live Ask. No bot in the call. Notes stay on your machine. AI via keys you control."
+      content="Local meeting notes for Zoom, Google Meet, and Teams. No bot in the call. Notes stay on your Mac or Windows PC. Live Ask with keys you control."
     />
     <meta name="theme-color" content="#f3eadc" />
     <meta name="color-scheme" content="light" />
+    <meta name="application-name" content="Acorn" />
+    <meta name="apple-mobile-web-app-title" content="Acorn" />
     <link rel="canonical" href="https://useacorn.app/" />
     <link rel="icon" href="/images/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/images/apple-touch.png" />
@@ -17,30 +19,180 @@
     <link rel="preload" href="/fonts/source-sans.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/images/acorn-icon.png" as="image" />
     <link rel="preload" href="/images/wordmark.png" as="image" />
-    <link rel="stylesheet" href="/styles.css?v=10" />
+    <link rel="preload" href="/images/poster.webp" as="image" />
+    <link rel="stylesheet" href="/styles.css?v=20" />
+    <meta property="og:site_name" content="Acorn" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content="Acorn — Local meeting notes. Live Ask." />
     <meta
       property="og:description"
-      content="No bot in the call. Notes stay on your machine. AI via keys you control."
+      content="Local meeting notes for Zoom, Google Meet, and Teams. No bot in the call. Notes stay on your machine."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://useacorn.app/" />
     <meta property="og:image" content="https://useacorn.app/images/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Acorn — local meeting notes for Mac and Windows"
+    />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Acorn — Local meeting notes. Live Ask." />
+    <meta
+      name="twitter:description"
+      content="Local meeting notes for Zoom, Google Meet, and Teams. No bot in the call. Notes stay on your machine."
+    />
     <meta name="twitter:image" content="https://useacorn.app/images/og.jpg" />
+    <meta
+      name="twitter:image:alt"
+      content="Acorn — local meeting notes for Mac and Windows"
+    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Acorn",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "macOS 15, Windows 10, Windows 11",
-        "softwareVersion": "0.1.13",
-        "description": "Local meeting notes. Live Ask. No bot in the call. Notes stay on your machine. AI via keys you control.",
-        "isAccessibleForFree": true,
-        "downloadUrl": [
-          "https://useacorn.app/downloads/acorn-mac.dmg",
-          "https://useacorn.app/downloads/acorn-windows.exe"
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://useacorn.app/#org",
+            "name": "Acorn",
+            "url": "https://useacorn.app/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://useacorn.app/images/acorn-icon.png"
+            },
+            "parentOrganization": {
+              "@type": "Organization",
+              "name": "RepEdge",
+              "url": "https://repedge.ai"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/useacorn/",
+              "https://repedge.ai"
+            ],
+            "email": "hello@useacorn.app"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://useacorn.app/#website",
+            "name": "Acorn",
+            "url": "https://useacorn.app/",
+            "inLanguage": "en-US",
+            "publisher": { "@id": "https://useacorn.app/#org" }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://useacorn.app/#app",
+            "name": "Acorn",
+            "url": "https://useacorn.app/",
+            "image": "https://useacorn.app/images/og.jpg",
+            "screenshot": "https://useacorn.app/images/poster.webp",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "macOS 15, Windows 10, Windows 11",
+            "softwareVersion": "0.1.13",
+            "description": "Local meeting notes for Zoom, Google Meet, and Teams. No bot in the call. Notes stay on your machine. Live Ask with keys you control.",
+            "isAccessibleForFree": true,
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "featureList": [
+              "Local meeting notes with no bot in the call",
+              "Works with Zoom, Google Meet, and Teams",
+              "Live Ask during the meeting",
+              "Notes stay on this computer",
+              "Optional AI with keys you control"
+            ],
+            "author": { "@id": "https://useacorn.app/#org" },
+            "publisher": { "@id": "https://useacorn.app/#org" },
+            "sameAs": [
+              "https://www.linkedin.com/company/useacorn/",
+              "https://repedge.ai"
+            ],
+            "downloadUrl": [
+              "https://useacorn.app/downloads/acorn-mac.dmg",
+              "https://useacorn.app/downloads/acorn-windows.exe"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://useacorn.app/#faqpage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is Acorn?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Acorn is a local meeting notes app for Mac and Windows. It captures from your computer so no bot joins Zoom, Google Meet, or Teams. Notes stay on this machine. Live Ask answers during the meeting, using a model and keys you control."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does a bot join the call?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Acorn captures from your computer. Nobody else sees a notetaker arrive."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where do the notes live?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "On this computer. Transcripts and notes are not uploaded to us in order to take notes."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will this run on my Mac?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Apple Silicon, macOS Sequoia 15 or later. Intel Macs are not supported yet."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will this run on Windows?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Windows 10/11 x64. Run acorn-windows.exe. The installer is unsigned, so SmartScreen may warn — click More info, then Run anyway. Needs WebView2 (Windows 11 already has it)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which meeting apps does Acorn work with?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Zoom, Google Meet, Teams, or the room itself. Acorn never joins as a participant."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need an AI account?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Not to capture notes. For summaries or Live Ask, connect a provider you already use, with your keys."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I connect Google Calendar?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. It is optional. Acorn can read your Google Calendar so notes match the right meeting. Calendar data stays on your Mac. See https://useacorn.app/privacy.html#google for how we handle Google user data."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I get help?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Write to hello@useacorn.app."
+                }
+              }
+            ]
+          }
         ]
       }
     </script>
@@ -55,6 +207,17 @@
         </a>
         <nav class="header-nav">
           <a class="nav-link" href="/privacy.html">Privacy</a>
+          <a
+            class="nav-social"
+            href="https://www.linkedin.com/company/useacorn/"
+            target="_blank"
+            rel="me noopener noreferrer"
+            aria-label="Acorn on LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 1 1 5.33 3.3a2.06 2.06 0 0 1 .01 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/>
+            </svg>
+          </a>
           <a class="btn btn-primary btn-sm header-cta" href="/downloads/acorn-mac.dmg">
             Download for Mac
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -66,113 +229,120 @@
     </header>
 
     <main id="main">
-      <section class="wrap hero">
-        <div>
-          <p class="kicker"><span class="dot pulse" aria-hidden="true"></span> Private beta</p>
-          <h1>Local meeting notes. <em>Live Ask.</em></h1>
-          <p class="lede">
-            No bot in the call. Notes stay on your machine. AI via keys you
-            control.
-          </p>
-          <div class="actions">
-            <a class="btn btn-primary" href="/downloads/acorn-mac.dmg">
-              Download for Mac
-              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <a class="btn btn-secondary" href="/downloads/acorn-windows.exe">
-              Download for Windows
-              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+      <section class="hero-scene">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="kicker"><span class="dot pulse" aria-hidden="true"></span> Beta</p>
+            <h1>Local meeting notes.<br /><em>Live Ask.</em></h1>
+            <p class="lede">
+              No bot in the call. Notes stay on your machine. AI via keys you
+              control.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="/downloads/acorn-mac.dmg">
+                Download for Mac
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a class="btn btn-secondary" href="/downloads/acorn-windows.exe">
+                Download for Windows
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+            <div class="fine-stack">
+              <p class="fine">
+                v0.1.13 · Apple Silicon · macOS 15 · Windows 10/11 x64.
+                No account. Notarized.
+              </p>
+            </div>
           </div>
-          <div class="fine-stack">
-            <p class="fine">v0.1.13 · Apple Silicon · macOS 15 · notarized.</p>
-            <p class="fine">v0.1.13 · Windows 10/11 x64.</p>
-            <p class="fine">
-              No account. Zoom, Meet, Teams — Acorn never joins. Intel Macs
-              are on the way.
-            </p>
+
+          <div class="hero-pin">
+            <div class="hero-stage" data-hero-frame aria-hidden="true">
+              <img
+                class="hero-notes"
+                src="/images/poster.webp"
+                alt=""
+                width="1356"
+                height="1160"
+                fetchpriority="high"
+              />
+              <video
+                class="hero-call"
+                data-hero-call
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                width="736"
+                height="400"
+                disablepictureinpicture
+                disableremoteplayback
+              >
+                <source
+                  src="/images/acorn-hero.mp4"
+                  type="video/mp4"
+                  media="(min-width: 700px) and (prefers-reduced-motion: no-preference)"
+                />
+              </video>
+            </div>
           </div>
-        </div>
 
-        <div class="hero-visual" aria-hidden="true">
-          <svg class="leaf" viewBox="0 0 200 220" fill="currentColor">
-            <path d="M102 12c18 28 58 48 78 86-22 8-48 6-70 18 8 22 6 48-8 72-18-32-54-50-78-86 24-6 50-4 70-18-6-24-4-50 8-72z"/>
-          </svg>
-          <article class="sheet">
-            <p class="sheet-meta">
-              <span>Tuesday · 11:04</span>
-              <span>On this Mac</span>
+          <div class="hero-props" aria-labelledby="statement">
+            <h2 id="statement" class="statement">
+              Present in the room. Notes on the machine.
+            </h2>
+            <p class="statement-sub">
+              Most notetakers arrive as a bot, then keep a copy of the call. Acorn
+              listens from your computer, writes locally, and answers while the
+              conversation is still going.
             </p>
-            <h3 class="sheet-line">Atlas kickoff</h3>
-            <ul>
-              <li class="sheet-line">Maya walks the security questionnaire.</li>
-              <li class="sheet-line">Ben owns the API change. Review Monday.</li>
-              <li class="sheet-line">EU residency still open from last week.</li>
-            </ul>
-            <div class="sheet-ask sheet-line">
-              <p class="label">Live Ask</p>
-              <p class="q">Who owns the questionnaire?</p>
-              <p class="a">Maya. She’ll send it Friday.</p>
+            <div class="grid-3">
+              <article class="card">
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="M8.2 8.2 15.8 15.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <h3>No bot in the call</h3>
+                <p>
+                  Nobody else sees a notetaker join. Capture stays on your Mac, so
+                  the meeting looks like a meeting.
+                </p>
+              </article>
+              <article class="card">
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="4.5" y="6" width="15" height="12.5" rx="1.8" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="M8 10.5h8M8 14h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <h3>Notes stay local</h3>
+                <p>
+                  Transcripts and notes live on your device. There is no Acorn
+                  account, and nothing is uploaded to us in order to take notes.
+                </p>
+              </article>
+              <article class="card">
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M8 11V8.5a4 4 0 0 1 8 0V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <rect x="6" y="11" width="12" height="8.5" rx="1.8" stroke="currentColor" stroke-width="1.6"/>
+                  </svg>
+                </div>
+                <h3>Keys you control</h3>
+                <p>
+                  When you want a summary or an answer, you connect a provider you
+                  already use. Acorn talks to it with your keys, not ours.
+                </p>
+              </article>
             </div>
-          </article>
-        </div>
-      </section>
-
-      <hr class="rule" />
-
-      <section class="wrap band" aria-labelledby="statement">
-        <h2 id="statement" class="statement reveal">
-          Present in the room. Notes on the machine.
-        </h2>
-        <p class="statement-sub reveal">
-          Most notetakers arrive as a bot, then keep a copy of the call. Acorn
-          listens from your computer, writes locally, and answers while the
-          conversation is still going.
-        </p>
-        <div class="grid-3">
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M8.2 8.2 15.8 15.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3>No bot in the call</h3>
-            <p>
-              Nobody else sees a notetaker join. Capture stays on your Mac, so
-              the meeting looks like a meeting.
-            </p>
-          </article>
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <rect x="4.5" y="6" width="15" height="12.5" rx="1.8" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M8 10.5h8M8 14h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3>Notes stay local</h3>
-            <p>
-              Transcripts and notes live on your device. There is no Acorn
-              account, and nothing is uploaded to us in order to take notes.
-            </p>
-          </article>
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M8 11V8.5a4 4 0 0 1 8 0V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <rect x="6" y="11" width="12" height="8.5" rx="1.8" stroke="currentColor" stroke-width="1.6"/>
-              </svg>
-            </div>
-            <h3>Keys you control</h3>
-            <p>
-              When you want a summary or an answer, you connect a provider you
-              already use. Acorn talks to it with your keys, not ours.
-            </p>
-          </article>
+          </div>
         </div>
       </section>
 
@@ -185,17 +355,17 @@
           already writing — and you can ask before the room moves on.
         </p>
         <div class="timeline">
-          <article class="moment reveal">
+          <article class="moment">
             <p class="time">11:04</p>
             <div>
               <h3>The call starts. No one joins it.</h3>
               <p>
-                Acorn captures from your machine. Zoom, Meet, Teams, or the
-                room itself — the other people never see a bot.
+                Acorn captures from your machine. Zoom, Google Meet, Teams,
+                or the room itself — the other people never see a bot.
               </p>
             </div>
           </article>
-          <article class="moment reveal">
+          <article class="moment">
             <p class="time">11:18</p>
             <div>
               <h3>Notes land on disk, not in a cloud copy.</h3>
@@ -205,7 +375,7 @@
               </p>
             </div>
           </article>
-          <article class="moment reveal">
+          <article class="moment">
             <p class="time">11:19</p>
             <div>
               <h3>You ask, while it’s still live.</h3>
@@ -234,17 +404,38 @@
               unless you send it.
             </p>
           </div>
-          <div
-            class="ask-panel reveal"
-            data-ask
-            aria-live="polite"
-            aria-label="Live Ask example"
-          >
-            <p class="eyebrow">On this Mac</p>
-            <p class="q" data-q>What did we commit to before Friday?</p>
-            <p class="a is-in" data-a>
-              Ship the API change. Ben owns it. Review is Monday, not this week.
-            </p>
+          <div class="ask-visual" data-ask-frame>
+            <div
+              class="ask-panel reveal"
+              data-ask
+              aria-live="polite"
+              aria-label="Live Ask example"
+            >
+              <p class="eyebrow">On this Mac</p>
+              <p class="q" data-q>What did we commit to before Friday?</p>
+              <p class="a is-in" data-a>
+                Ship the API change. Ben owns it. Review is Monday, not this week.
+              </p>
+            </div>
+            <video
+              class="ask-call"
+              data-ask-call
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              width="1080"
+              height="1620"
+              disablepictureinpicture
+              disableremoteplayback
+            >
+              <source
+                src="/images/meeting-2.mp4"
+                type="video/mp4"
+                media="(min-width: 700px) and (prefers-reduced-motion: no-preference)"
+              />
+            </video>
           </div>
           <img
             class="cta-mascot"
@@ -266,7 +457,7 @@
           No account.
         </p>
         <div class="timeline">
-          <article class="moment reveal">
+          <article class="moment">
             <p class="time">01</p>
             <div>
               <h3>Download Acorn.</h3>
@@ -275,7 +466,7 @@
               </p>
             </div>
           </article>
-          <article class="moment reveal">
+          <article class="moment">
             <p class="time">02</p>
             <div>
               <h3>Open it.</h3>
@@ -285,7 +476,7 @@
               </p>
             </div>
           </article>
-          <article class="moment reveal">
+          <article class="moment">
             <p class="time">03</p>
             <div>
               <h3>Grant three permissions.</h3>
@@ -309,28 +500,37 @@
       <section class="wrap band" aria-labelledby="faq">
         <h2 id="faq" class="reveal">Before you download.</h2>
         <div class="faq">
-          <article class="reveal">
-            <h3>Does a bot join the call?</h3>
+          <article class="reveal" id="faq-what">
+            <h3>What is Acorn?</h3>
             <p>
-              No. Acorn captures from your Mac. Nobody else sees a notetaker
-              arrive.
+              Acorn is a local meeting notes app for Mac and Windows. It
+              captures from your computer so no bot joins Zoom, Google Meet,
+              or Teams. Notes stay on this machine. Live Ask answers during
+              the meeting, using a model and keys you control.
             </p>
           </article>
-          <article class="reveal">
+          <article class="reveal" id="faq-bot">
+            <h3>Does a bot join the call?</h3>
+            <p>
+              No. Acorn captures from your computer. Nobody else sees a
+              notetaker arrive.
+            </p>
+          </article>
+          <article class="reveal" id="faq-notes">
             <h3>Where do the notes live?</h3>
             <p>
               On this computer. Transcripts and notes are not uploaded to us
               in order to take notes.
             </p>
           </article>
-          <article class="reveal">
+          <article class="reveal" id="faq-mac">
             <h3>Will this run on my Mac?</h3>
             <p>
               Apple Silicon, macOS Sequoia 15 or later. Intel Macs are not
               supported yet.
             </p>
           </article>
-          <article class="reveal">
+          <article class="reveal" id="faq-windows">
             <h3>Will this run on Windows?</h3>
             <p>
               Windows 10/11 x64. Run acorn-windows.exe. The installer is
@@ -338,21 +538,21 @@
               anyway. Needs WebView2 (Windows 11 already has it).
             </p>
           </article>
-          <article class="reveal">
-            <h3>Which meetings?</h3>
+          <article class="reveal" id="faq-apps">
+            <h3>Which meeting apps does Acorn work with?</h3>
             <p>
-              Zoom, Meet, Teams, or the room itself. Acorn never joins as a
-              participant.
+              Zoom, Google Meet, Teams, or the room itself. Acorn never joins
+              as a participant.
             </p>
           </article>
-          <article class="reveal">
+          <article class="reveal" id="faq-ai">
             <h3>Do I need an AI account?</h3>
             <p>
               Not to capture notes. For summaries or Live Ask, connect a
               provider you already use, with your keys.
             </p>
           </article>
-          <article class="reveal">
+          <article class="reveal" id="faq-calendar">
             <h3>Can I connect Google Calendar?</h3>
             <p>
               Yes. It is optional. Acorn can read your Google Calendar so notes
@@ -360,7 +560,7 @@
               <a href="/privacy.html#google">how we handle Google user data</a>.
             </p>
           </article>
-          <article class="reveal">
+          <article class="reveal" id="faq-help">
             <h3>How do I get help?</h3>
             <p>
               Write to
@@ -373,7 +573,7 @@
       <section class="cta-band band" aria-labelledby="get">
         <div class="wrap">
           <h2 id="get">Download Acorn.</h2>
-          <p>Private beta. Apple Silicon, macOS Sequoia 15 or later. Windows 10/11 x64. No account.</p>
+          <p>Beta. Apple Silicon, macOS Sequoia 15 or later. Windows 10/11 x64. No account.</p>
           <div class="actions">
             <a class="btn btn-primary" href="/downloads/acorn-mac.dmg">
               Download for Mac
@@ -395,17 +595,21 @@
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <p>
-          Private beta. From
-          <a href="https://repedge.ai" rel="noopener noreferrer">RepEdge</a>.
-        </p>
-        <p class="footer-nav">
+        <div class="footer-brand">
+          <p>Beta. From <a href="https://repedge.ai" rel="noopener noreferrer">RepEdge</a>.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
           <a href="/privacy.html">Privacy</a>
           <a href="/terms.html">Terms</a>
+          <a
+            href="https://www.linkedin.com/company/useacorn/"
+            target="_blank"
+            rel="me noopener noreferrer"
+            >LinkedIn</a>
           <a href="mailto:hello@useacorn.app">hello@useacorn.app</a>
-        </p>
+        </nav>
       </div>
     </footer>
-    <script src="/script.js"></script>
+    <script src="/script.js?v=19"></script>
   </body>
 </html>
