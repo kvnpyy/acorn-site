@@ -68,6 +68,78 @@ async function proxyDownload(request, asset) {
   });
 }
 
+const SHARE_CODE_RE = /^[0-9a-f]{24}$/;
+
+function parseInvitePath(pathname) {
+  if (pathname !== "/r" && pathname !== "/r/" && !pathname.startsWith("/r/")) {
+    return null;
+  }
+
+  let rest = "";
+  if (pathname !== "/r" && pathname !== "/r/") {
+    rest = pathname.slice(3);
+    if (rest.endsWith("/")) rest = rest.slice(0, -1);
+  }
+
+  let decoded = rest;
+  try {
+    decoded = rest ? decodeURIComponent(rest) : "";
+  } catch {
+    decoded = "";
+  }
+
+  if (!decoded || decoded.includes("/")) {
+    return { valid: false, code: "" };
+  }
+
+  const code = decoded.toLowerCase();
+  if (!SHARE_CODE_RE.test(code)) {
+    return { valid: false, code: "" };
+  }
+
+  return { valid: true, code, canonical: `/r/${code}` };
+}
+
+function inviteHeaders(source) {
+  const headers = new Headers(source);
+  headers.set("Content-Type", "text/html; charset=utf-8");
+  headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+  headers.set("X-Robots-Tag", "noindex, nofollow");
+  headers.delete("Content-Length");
+  return headers;
+}
+
+async function serveInvitePage(request, env, invite) {
+  const asset = await env.ASSETS.fetch(new URL("/r.html", request.url));
+  const headers = inviteHeaders(asset.headers);
+
+  if (request.method === "HEAD") {
+    return new Response(null, { status: 200, headers });
+  }
+
+  let html = await asset.text();
+  if (invite.valid) {
+    html = html
+      .replace('<html lang="en">', '<html lang="en" data-invite="valid">')
+      .replaceAll('data-invite-view="valid" hidden', 'data-invite-view="valid"')
+      .replace(
+        'data-invite-view="invalid"',
+        'data-invite-view="invalid" hidden'
+      )
+      .replace(
+        'id="share-code" aria-label="Share code"></code>',
+        `id="share-code" aria-label="Share code">${invite.code}</code>`
+      );
+  } else {
+    html = html.replace(
+      '<html lang="en">',
+      '<html lang="en" data-invite="invalid">'
+    );
+  }
+
+  return new Response(html, { status: 200, headers });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -76,6 +148,22 @@ export default {
     }
     if (url.pathname === "/downloads/acorn-windows.exe") {
       return proxyDownload(request, WINDOWS);
+    }
+
+    const invite = parseInvitePath(url.pathname);
+    if (invite) {
+      if (request.method !== "GET" && request.method !== "HEAD") {
+        return new Response(null, {
+          status: 405,
+          headers: { Allow: "GET, HEAD" },
+        });
+      }
+      if (invite.valid && url.pathname !== invite.canonical) {
+        const dest = new URL(invite.canonical, url.origin);
+        dest.search = url.search;
+        return Response.redirect(dest, 301);
+      }
+      return serveInvitePage(request, env, invite);
     }
     if (
       url.pathname === "/src" ||

@@ -21,3 +21,6 @@
 
 /script.js
   Cache-Control: public, max-age=3600
+
+/r.js
+  Cache-Control: public, max-age=3600

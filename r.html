@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>You’ve been invited to Acorn</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="Someone invited you to Acorn — local meeting notes with live transcription. Download for Mac, then enter the share code in Settings → Acorn Pro."
+    />
+    <meta name="theme-color" content="#f3eadc" />
+    <meta name="color-scheme" content="light" />
+    <meta name="application-name" content="Acorn" />
+    <link rel="icon" href="/images/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/images/apple-touch.png" />
+    <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/source-sans.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/images/acorn-icon.png" as="image" />
+    <link rel="preload" href="/images/wordmark.png" as="image" />
+    <link rel="stylesheet" href="/styles.css?v=24" />
+    <meta property="og:site_name" content="Acorn" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="You’ve been invited to Acorn" />
+    <meta
+      property="og:description"
+      content="Local meeting notes with live transcription. Download Acorn, then enter the share code in Settings → Acorn Pro."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://useacorn.app/" />
+    <meta property="og:image" content="https://useacorn.app/images/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Acorn — local meeting notes for Mac and Windows"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="You’ve been invited to Acorn" />
+    <meta
+      name="twitter:description"
+      content="Local meeting notes with live transcription. Download Acorn, then enter the share code in Settings → Acorn Pro."
+    />
+    <meta name="twitter:image" content="https://useacorn.app/images/og.jpg" />
+    <script>
+      (function () {
+        var path = location.pathname.replace(/\/+$/, "") || "/";
+        var match = path.match(/^\/r\/([0-9a-fA-F]{24})$/);
+        var code = match ? match[1].toLowerCase() : "";
+        window.__acornShare = code;
+        if (!document.documentElement.getAttribute("data-invite")) {
+          document.documentElement.setAttribute(
+            "data-invite",
+            code ? "valid" : "invalid"
+          );
+        }
+      })();
+    </script>
+  </head>
+  <body class="invite-page">
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label="Acorn home">
+          <img class="brand-icon" src="/images/acorn-icon.png" alt="" width="256" height="256" />
+          <img class="brand-wordmark" src="/images/wordmark.png" alt="" width="663" height="220" />
+        </a>
+        <nav class="header-nav">
+          <a class="nav-link" href="/privacy.html">Privacy</a>
+          <a
+            class="nav-social"
+            href="https://www.linkedin.com/company/useacorn/"
+            target="_blank"
+            rel="me noopener noreferrer"
+            aria-label="Acorn on LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 1 1 5.33 3.3a2.06 2.06 0 0 1 .01 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/>
+            </svg>
+          </a>
+          <a class="btn btn-primary btn-sm header-cta" href="/downloads/acorn-mac.dmg" data-invite-download>
+            <span class="cta-full">Download for Mac</span>
+            <span class="cta-short">Download</span>
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="wrap invite-hero invite-valid" data-invite-view="valid" hidden aria-labelledby="invite-title">
+        <div class="invite-panel">
+          <p class="kicker">Invite</p>
+          <h1 id="invite-title">Someone invited you to <em>Acorn.</em></h1>
+          <p class="lede">
+            Local meeting notes with live transcription, no bot in the call.
+          </p>
+          <div class="share-code">
+            <pre><code id="share-code" aria-label="Share code"></code></pre>
+            <script>
+              (function () {
+                var el = document.getElementById("share-code");
+                if (el && window.__acornShare) el.textContent = window.__acornShare;
+              })();
+            </script>
+            <button class="btn btn-secondary" type="button" id="copy-share-code">Copy</button>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="/downloads/acorn-mac.dmg" data-invite-download>
+              Download Acorn for Mac
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a class="btn btn-secondary" href="/downloads/acorn-windows.exe" data-invite-download>
+              Download for Windows
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+          <p class="fine">
+            Keep this page. Downloading doesn’t activate Pro — paste the code
+            in Acorn after you install.
+          </p>
+        </div>
+      </section>
+
+      <hr class="rule invite-valid" data-invite-view="valid" hidden />
+
+      <section class="wrap band invite-valid invite-steps" data-invite-view="valid" hidden aria-labelledby="invite-how">
+        <h2 id="invite-how">Then finish in the app.</h2>
+        <div class="timeline">
+          <article class="moment">
+            <p class="time">01</p>
+            <div>
+              <h3>Download and install Acorn</h3>
+              <p>Get the Mac app, open the DMG, and drag Acorn into Applications.</p>
+            </div>
+          </article>
+          <article class="moment">
+            <p class="time">02</p>
+            <div>
+              <h3>Open Settings → Acorn Pro</h3>
+              <p>Launch Acorn, then open Settings and go to Acorn Pro.</p>
+            </div>
+          </article>
+          <article class="moment">
+            <p class="time">03</p>
+            <div>
+              <h3>Paste this share code</h3>
+              <p>Use Copy above, then paste it into the share code field.</p>
+            </div>
+          </article>
+          <article class="moment">
+            <p class="time">04</p>
+            <div>
+              <h3>Enter your work email</h3>
+              <p>Not Gmail, Outlook, or iCloud. Qualifying happens in the app, not on this page.</p>
+            </div>
+          </article>
+          <article class="moment">
+            <p class="time">05</p>
+            <div>
+              <h3>You get 30 days of Pro</h3>
+              <p>Pro starts after Acorn accepts the share code and work email.</p>
+            </div>
+          </article>
+        </div>
+        <p class="invite-foot">
+          This also counts toward the person who shared the link. They need two
+          work-email installs for a year of Pro. You don’t have to be coworkers.
+        </p>
+      </section>
+
+      <section class="wrap invite-hero invite-invalid" data-invite-view="invalid" aria-labelledby="download-title">
+        <div class="notice">
+          <p>That invite link isn’t valid. You can still download Acorn.</p>
+        </div>
+        <p class="kicker"><span class="dot pulse" aria-hidden="true"></span> Beta</p>
+        <h1 id="download-title">Local meeting notes.<br /><em>Live Ask.</em></h1>
+        <p class="lede">
+          No bot in the call. Notes stay on your machine. AI via keys you
+          control.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/downloads/acorn-mac.dmg">
+            Download for Mac
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="btn btn-secondary" href="/downloads/acorn-windows.exe">
+            Download for Windows
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 3v8M4.5 8.5 8 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <p class="fine">
+          v0.1.14 · Apple Silicon · macOS 15 · Windows 10/11 x64.
+          No account. Notarized.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div class="footer-brand">
+          <p>Beta. From <a href="https://repedge.ai" rel="noopener noreferrer">RepEdge</a>. Built on Anarlog (MIT).</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a
+            href="https://www.linkedin.com/company/useacorn/"
+            target="_blank"
+            rel="me noopener noreferrer"
+            >LinkedIn</a>
+          <a href="mailto:hello@useacorn.app">hello@useacorn.app</a>
+        </nav>
+      </div>
+    </footer>
+    <p class="invite-toast" id="invite-toast" role="status" aria-live="polite"></p>
+    <script src="/script.js?v=20"></script>
+    <script src="/r.js?v=2"></script>
+  </body>
+</html>

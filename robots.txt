@@ -1,6 +1,7 @@
 # https://useacorn.app
 User-agent: *
 Allow: /
+Disallow: /r/
 
 User-agent: GPTBot
 Allow: /

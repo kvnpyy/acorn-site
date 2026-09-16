@@ -13,5 +13,7 @@ run_worker_first = [
   "/.git/*",
   "/.wrangler",
   "/.wrangler/*",
+  "/r",
+  "/r/*",
 ]
 not_found_handling = "404-page"
