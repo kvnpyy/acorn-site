@@ -440,7 +440,7 @@ a {
   width: 56%;
   height: auto;
   aspect-ratio: 16 / 9;
-  display: none;
+  display: block;
   margin: 0;
   border: 0;
   border-radius: 0.55rem;
@@ -448,13 +448,14 @@ a {
   object-fit: cover;
   object-position: center;
   pointer-events: none;
+  opacity: 0;
   box-shadow:
     0 1px 0 rgba(0, 0, 0, 0.18),
     0 18px 36px -18px rgba(26, 21, 16, 0.55);
 }
 
 .hero-stage.is-live .hero-call {
-  display: block;
+  opacity: 1;
 }
 
 .kicker {
@@ -733,7 +734,7 @@ h2 {
   height: 94%;
   max-height: 22rem;
   aspect-ratio: 1080 / 1620;
-  display: none;
+  display: block;
   margin: 0;
   border: 0;
   border-radius: 0.85rem;
@@ -741,6 +742,7 @@ h2 {
   object-fit: cover;
   object-position: center;
   pointer-events: none;
+  opacity: 0;
   transform: translateY(-50%);
   box-shadow:
     0 1px 0 rgba(0, 0, 0, 0.18),
@@ -748,7 +750,7 @@ h2 {
 }
 
 .ask-visual.is-live .ask-call {
-  display: block;
+  opacity: 1;
 }
 
 .ask-visual.is-live + .cta-mascot {
@@ -1202,11 +1204,12 @@ h2 {
     width: 92%;
   }
 
+  .hero-call,
   .hero-stage.is-live .hero-call {
-    display: block;
-    width: 66%;
+    width: 70%;
     right: 0;
-    bottom: 14%;
+    bottom: auto;
+    top: 28%;
     border-radius: 0.45rem;
   }
 
@@ -1218,6 +1221,7 @@ h2 {
 
   .ask-visual.is-live .ask-call {
     display: block;
+    opacity: 1;
     height: 90%;
     max-height: 16rem;
   }
@@ -1256,6 +1260,7 @@ h2 {
   .hero-call,
   .ask-call {
     display: none !important;
+    opacity: 0 !important;
   }
 
   .ask-visual.is-live + .cta-mascot {

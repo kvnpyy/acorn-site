@@ -20,7 +20,7 @@
     <link rel="preload" href="/images/acorn-icon.png" as="image" />
     <link rel="preload" href="/images/wordmark.png" as="image" />
     <link rel="preload" href="/images/poster.webp" as="image" />
-    <link rel="stylesheet" href="/styles.css?v=22" />
+    <link rel="stylesheet" href="/styles.css?v=25" />
     <meta property="og:site_name" content="Acorn" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:title" content="Acorn — Local meeting notes. Live Ask." />
@@ -278,17 +278,15 @@
                 muted
                 loop
                 playsinline
-                preload="metadata"
+                webkit-playsinline
+                preload="auto"
+                poster="/images/acorn-hero-poster.jpg"
                 width="736"
                 height="400"
                 disablepictureinpicture
                 disableremoteplayback
               >
-                <source
-                  src="/images/acorn-hero.mp4"
-                  type="video/mp4"
-                  media="(prefers-reduced-motion: no-preference)"
-                />
+                <source src="/images/acorn-hero.mp4?v=2" type="video/mp4" />
               </video>
             </div>
           </div>
@@ -425,17 +423,14 @@
               muted
               loop
               playsinline
+              webkit-playsinline
               preload="metadata"
               width="1080"
               height="1620"
               disablepictureinpicture
               disableremoteplayback
             >
-              <source
-                src="/images/meeting-2.mp4"
-                type="video/mp4"
-                media="(prefers-reduced-motion: no-preference)"
-              />
+              <source src="/images/meeting-2.mp4" type="video/mp4" />
             </video>
           </div>
           <img
@@ -611,6 +606,6 @@
         </nav>
       </div>
     </footer>
-    <script src="/script.js?v=20"></script>
+    <script src="/script.js?v=21"></script>
   </body>
 </html>
