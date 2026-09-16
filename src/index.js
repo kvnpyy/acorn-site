@@ -1,11 +1,11 @@
 const MAC = {
-  url: "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.14/Acorn_0.1.14_aarch64.dmg",
+  url: "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.16/Acorn_0.1.16_aarch64.dmg",
   contentType: "application/x-apple-diskimage",
   filename: "Acorn.dmg",
 };
 
 const WINDOWS = {
-  url: "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.14/Acorn_0.1.14_x64-setup.exe",
+  url: "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.15/Acorn_0.1.15_x64-setup.exe",
   contentType: "application/octet-stream",
   filename: "acorn-windows.exe",
 };
