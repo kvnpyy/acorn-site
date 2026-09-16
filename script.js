@@ -15,7 +15,7 @@
   var heroScene = document.querySelector(".hero-scene");
 
   function heroCanPlay() {
-    return layoutMq.matches && !motionMq.matches;
+    return !motionMq.matches;
   }
 
   function heroCanPin() {
