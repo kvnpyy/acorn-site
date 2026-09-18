@@ -1,5 +1,5 @@
 const MAC = {
-  url: "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.17/Acorn_0.1.17_aarch64.dmg",
+  url: "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.18/Acorn_0.1.18_aarch64.dmg",
   contentType: "application/x-apple-diskimage",
   filename: "Acorn.dmg",
 };
