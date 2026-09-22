@@ -5,7 +5,7 @@ const MAC = {
 };
 
 const WINDOWS = {
-  url: "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.16/Acorn_0.1.16_x64-setup.exe",
+  url: "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.18/Acorn_0.1.18_x64-setup.exe",
   contentType: "application/octet-stream",
   filename: "acorn-windows.exe",
 };
