@@ -135,7 +135,7 @@ async function proxyDownload(request, asset) {
     method,
     headers: incoming,
     redirect: "follow",
-    cf: { cacheEverything: true, cacheTtl: 3600 },
+      cf: { cacheEverything: true, cacheTtl: 60 },
   });
 
   const contentType = upstream.headers.get("Content-Type") || "";
@@ -155,7 +155,7 @@ async function proxyDownload(request, asset) {
     "Content-Disposition",
     `attachment; filename="${asset.filename}"`
   );
-  headers.set("Cache-Control", "public, max-age=3600");
+  headers.set("Cache-Control", "public, max-age=60");
   headers.set("X-Content-Type-Options", "nosniff");
 
   const length = upstream.headers.get("Content-Length");

@@ -15,8 +15,8 @@ Made by [RepEdge](https://repedge.ai). Built on Anarlog (MIT). Currently in beta
 
 ## Downloads
 
-- [Mac](https://useacorn.app/downloads/acorn-mac.dmg): Apple Silicon, macOS 15 Sequoia or later. Notarized.
-- [Windows](https://useacorn.app/downloads/acorn-windows.exe): Windows 10/11 x64. Signed.
+- [Mac](https://useacorn.app/downloads/acorn-mac.dmg?v=0.1.19): Apple Silicon, macOS 15 Sequoia or later. Notarized.
+- [Windows](https://useacorn.app/downloads/acorn-windows.exe?v=0.1.19): Windows 10/11 x64. Signed.
 
 ## Optional
 
