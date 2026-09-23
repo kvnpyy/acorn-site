@@ -649,10 +649,6 @@ h2 {
   border-top: 1px solid var(--rule);
 }
 
-.windows-note {
-  margin-top: 2.5rem;
-}
-
 .moment {
   display: grid;
   grid-template-columns: 5.25rem minmax(0, 1fr);

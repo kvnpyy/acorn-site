@@ -89,7 +89,7 @@
             "screenshot": "https://useacorn.app/images/poster.webp",
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "macOS 15, Windows 10, Windows 11",
-            "softwareVersion": "0.1.14",
+            "softwareVersion": "0.1.18",
             "description": "Local meeting notes for Zoom, Google Meet, and Teams. No bot in the call. Notes stay on your machine. Live Ask with keys you control. Built on Anarlog (MIT).",
             "isAccessibleForFree": true,
             "offers": {
@@ -156,7 +156,7 @@
                 "name": "Will this run on Windows?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Windows 10/11 x64. Run acorn-windows.exe. The installer is unsigned, so SmartScreen may warn — click More info, then Run anyway. Needs WebView2 (Windows 11 already has it)."
+                  "text": "Windows 10/11 x64. Run the installer. Needs WebView2 (Windows 11 already has it)."
                 }
               },
               {
@@ -255,8 +255,8 @@
             </div>
             <div class="fine-stack">
               <p class="fine">
-                v0.1.14 · Apple Silicon · macOS 15 · Windows 10/11 x64.
-                No account. Notarized.
+                v<span class="acorn-version">0.1.18</span> · Apple Silicon · macOS 15 · Windows 10/11 x64.
+                No account. Signed.
               </p>
             </div>
           </div>
@@ -447,10 +447,10 @@
       <hr class="rule" />
 
       <section class="wrap band" aria-labelledby="start">
-        <h2 id="start" class="reveal">On this Mac in a minute.</h2>
+        <h2 id="start" class="reveal">On this computer in a minute.</h2>
         <p class="statement-sub reveal">
-          This build is Apple Silicon, macOS Sequoia 15 or later. Notarized.
-          No account.
+          Mac is Apple Silicon, macOS Sequoia 15 or later, and notarized.
+          Windows is 10/11 x64 and signed. No account.
         </p>
         <div class="timeline">
           <article class="moment">
@@ -458,7 +458,9 @@
             <div>
               <h3>Download Acorn.</h3>
               <p>
-                Get the 0.1.14 DMG. Open it and drag Acorn into Applications.
+                Get the <span class="acorn-version">0.1.18</span> build. On
+                Mac, open the DMG and drag Acorn into Applications. On
+                Windows, run the installer.
               </p>
             </div>
           </article>
@@ -467,28 +469,25 @@
             <div>
               <h3>Open it.</h3>
               <p>
-                Launch Acorn from Applications. Gatekeeper should let it
-                through — this build is signed and notarized.
+                On Mac, launch Acorn from Applications. Gatekeeper should let
+                it through — this build is signed and notarized. On Windows,
+                finish the installer and open Acorn.
               </p>
             </div>
           </article>
           <article class="moment">
             <p class="time">03</p>
             <div>
-              <h3>Grant three permissions.</h3>
+              <h3>Grant the permissions it asks for.</h3>
               <p>
                 Microphone so it can hear you. System audio so it can hear
-                everyone else. Accessibility so it can read meeting details
-                without joining the call.
+                everyone else. On Mac, Accessibility so it can read meeting
+                details without joining the call. Windows also needs
+                WebView2, which Windows 11 already has.
               </p>
             </div>
           </article>
         </div>
-        <p class="statement-sub windows-note reveal">
-          On Windows 10/11 x64, run acorn-windows.exe. The installer is
-          unsigned, so SmartScreen may warn — click More info, then Run
-          anyway. Needs WebView2 (Windows 11 already has it).
-        </p>
       </section>
 
       <hr class="rule" />
@@ -529,9 +528,8 @@
           <article class="reveal" id="faq-windows">
             <h3>Will this run on Windows?</h3>
             <p>
-              Windows 10/11 x64. Run acorn-windows.exe. The installer is
-              unsigned, so SmartScreen may warn — click More info, then Run
-              anyway. Needs WebView2 (Windows 11 already has it).
+              Windows 10/11 x64. Run the installer. Needs WebView2 (Windows 11
+              already has it).
             </p>
           </article>
           <article class="reveal" id="faq-apps">
@@ -584,7 +582,7 @@
               </svg>
             </a>
           </div>
-          <p class="fine">v0.1.14 · Mac notarized. Notes stay on this computer.</p>
+          <p class="fine">v<span class="acorn-version">0.1.18</span> · Signed. Notes stay on this computer.</p>
         </div>
       </section>
     </main>

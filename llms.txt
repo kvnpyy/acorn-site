@@ -4,7 +4,7 @@
 
 Acorn is a local-first meeting notes app for macOS (Apple Silicon, Sequoia 15+) and Windows 10/11. It captures from your computer, so no bot joins Zoom, Google Meet, or Teams. Notes stay on the device. Live Ask answers from those notes while the meeting is still going. Optional AI uses a provider and keys you control. No account required.
 
-Made by [RepEdge](https://repedge.ai). Built on Anarlog (MIT). Currently in beta (v0.1.14).
+Made by [RepEdge](https://repedge.ai). Built on Anarlog (MIT). Currently in beta (v0.1.18).
 
 ## Product
 
@@ -16,7 +16,7 @@ Made by [RepEdge](https://repedge.ai). Built on Anarlog (MIT). Currently in beta
 ## Downloads
 
 - [Mac](https://useacorn.app/downloads/acorn-mac.dmg): Apple Silicon, macOS 15 Sequoia or later. Notarized.
-- [Windows](https://useacorn.app/downloads/acorn-windows.exe): Windows 10/11 x64. Unsigned installer; SmartScreen may warn.
+- [Windows](https://useacorn.app/downloads/acorn-windows.exe): Windows 10/11 x64. Signed.
 
 ## Optional
 

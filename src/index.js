@@ -1,14 +1,117 @@
-const MAC = {
-  url: "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.18/Acorn_0.1.18_aarch64.dmg",
-  contentType: "application/x-apple-diskimage",
-  filename: "Acorn.dmg",
+const LATEST_URL =
+  "https://github.com/kvnpyy/acorn-releases/releases/latest/download/latest.json";
+const RELEASE_TTL_MS = 5 * 60 * 1000;
+
+let cachedRelease = null;
+let cachedAt = 0;
+
+const FALLBACK = {
+  version: "0.1.18",
+  macUrl:
+    "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.18/Acorn_0.1.18_aarch64.dmg",
+  winUrl:
+    "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.18/Acorn_0.1.18_x64-setup.exe",
 };
 
-const WINDOWS = {
-  url: "https://github.com/kvnpyy/acorn-releases/releases/download/v0.1.18/Acorn_0.1.18_x64-setup.exe",
-  contentType: "application/octet-stream",
-  filename: "acorn-windows.exe",
-};
+function assetFor(release, platform) {
+  if (platform === "mac") {
+    return {
+      url: release.macUrl,
+      contentType: "application/x-apple-diskimage",
+      filename: "Acorn.dmg",
+    };
+  }
+  return {
+    url: release.winUrl,
+    contentType: "application/octet-stream",
+    filename: "acorn-windows.exe",
+  };
+}
+
+function releaseFromManifest(manifest) {
+  const version = String(manifest?.version || "").trim();
+  if (!/^\d+\.\d+\.\d+$/.test(version)) return null;
+  const base = `https://github.com/kvnpyy/acorn-releases/releases/download/v${version}`;
+  const winUrl =
+    manifest.platforms?.["windows-x86_64"]?.url ||
+    `${base}/Acorn_${version}_x64-setup.exe`;
+  return {
+    version,
+    macUrl: `${base}/Acorn_${version}_aarch64.dmg`,
+    winUrl,
+  };
+}
+
+async function getRelease() {
+  if (cachedRelease && Date.now() - cachedAt < RELEASE_TTL_MS) {
+    return cachedRelease;
+  }
+
+  try {
+    const res = await fetch(LATEST_URL, {
+      headers: {
+        "User-Agent": "AcornSite/1.0 (+https://useacorn.app/)",
+        Accept: "application/json",
+      },
+      redirect: "follow",
+    });
+    if (!res.ok) return cachedRelease || FALLBACK;
+    const release = releaseFromManifest(await res.json());
+    if (!release) return cachedRelease || FALLBACK;
+    cachedRelease = release;
+    cachedAt = Date.now();
+    return release;
+  } catch {
+    return cachedRelease || FALLBACK;
+  }
+}
+
+function stampVersion(body, version) {
+  return body
+    .replaceAll(
+      /class="acorn-version">[^<]*/g,
+      `class="acorn-version">${version}`
+    )
+    .replaceAll(
+      /"softwareVersion": "[^"]*"/g,
+      `"softwareVersion": "${version}"`
+    )
+    .replaceAll(
+      /Currently in beta \(v[^)]*\)/g,
+      `Currently in beta (v${version})`
+    );
+}
+
+async function serveVersionedAsset(request, env, release) {
+  const asset = await env.ASSETS.fetch(request);
+  if (request.method === "HEAD" || asset.status !== 200) return asset;
+
+  const type = asset.headers.get("Content-Type") || "";
+  const path = new URL(request.url).pathname;
+  const isText =
+    type.includes("text/html") ||
+    type.includes("text/plain") ||
+    path === "/llms.txt";
+  if (!isText) return asset;
+
+  const body = await asset.text();
+  if (
+    !body.includes("acorn-version") &&
+    !body.includes('"softwareVersion"') &&
+    !body.includes("Currently in beta (v")
+  ) {
+    const headers = new Headers(asset.headers);
+    headers.delete("Content-Length");
+    return new Response(body, { status: asset.status, headers });
+  }
+
+  const headers = new Headers(asset.headers);
+  headers.delete("Content-Length");
+  return new Response(stampVersion(body, release.version), {
+    status: asset.status,
+    headers,
+  });
+}
 
 async function proxyDownload(request, asset) {
   const method = request.method;
@@ -109,7 +212,7 @@ function inviteHeaders(source) {
   return headers;
 }
 
-async function serveInvitePage(request, env, invite) {
+async function serveInvitePage(request, env, invite, release) {
   const asset = await env.ASSETS.fetch(new URL("/r.html", request.url));
   const headers = inviteHeaders(asset.headers);
 
@@ -117,7 +220,7 @@ async function serveInvitePage(request, env, invite) {
     return new Response(null, { status: 200, headers });
   }
 
-  let html = await asset.text();
+  let html = stampVersion(await asset.text(), release.version);
   if (invite.valid) {
     html = html
       .replace('<html lang="en">', '<html lang="en" data-invite="valid">')
@@ -143,11 +246,14 @@ async function serveInvitePage(request, env, invite) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname === "/downloads/acorn-mac.dmg") {
-      return proxyDownload(request, MAC);
-    }
-    if (url.pathname === "/downloads/acorn-windows.exe") {
-      return proxyDownload(request, WINDOWS);
+    if (
+      url.pathname === "/downloads/acorn-mac.dmg" ||
+      url.pathname === "/downloads/acorn-windows.exe"
+    ) {
+      const release = await getRelease();
+      const platform =
+        url.pathname === "/downloads/acorn-mac.dmg" ? "mac" : "windows";
+      return proxyDownload(request, assetFor(release, platform));
     }
 
     const invite = parseInvitePath(url.pathname);
@@ -163,7 +269,7 @@ export default {
         dest.search = url.search;
         return Response.redirect(dest, 301);
       }
-      return serveInvitePage(request, env, invite);
+      return serveInvitePage(request, env, invite, await getRelease());
     }
     if (
       url.pathname === "/src" ||
@@ -181,6 +287,15 @@ export default {
         headers: notFound.headers,
       });
     }
+    if (
+      url.pathname === "/" ||
+      url.pathname === "/index.html" ||
+      url.pathname === "/r.html" ||
+      url.pathname === "/llms.txt"
+    ) {
+      return serveVersionedAsset(request, env, await getRelease());
+    }
+
     return env.ASSETS.fetch(request);
   },
 };
